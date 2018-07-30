@@ -23,10 +23,7 @@ export default Picker.extend({
 
   didInsertElement() {
     const defaults = this.getOptions().date;
-    const options = {
-      ...defaults,
-      ...this.attrs.options
-    };
+    const options = Object.assign(defaults, this.get('options'));
     options.onClose = options.onClose || this.onClose;
     options.onSet = (ev) => {
       this.onSelected(ev);

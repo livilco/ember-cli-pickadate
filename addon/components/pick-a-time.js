@@ -26,10 +26,7 @@ export default Picker.extend({
 
   didInsertElement() {
     const defaults = this.getOptions().date;
-    const options = {
-      ...defaults,
-      ...this.attrs.options
-    };
+    const options = Object.assign(defaults, this.get('options'));
 
     for (var option in options.value) {
       options[option] = options.value[option];
