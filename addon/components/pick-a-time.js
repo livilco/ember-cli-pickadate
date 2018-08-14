@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import Picker from './picker';
+import { assign } from '@ember/polyfills';
 
 const {
   Component,
@@ -26,7 +27,7 @@ export default Picker.extend({
 
   didInsertElement() {
     const defaults = this.getOptions().date;
-    const options = Object.assign(defaults, this.get('options'));
+    const options = assign(defaults, this.get('options'));
 
     for (var option in options.value) {
       options[option] = options.value[option];

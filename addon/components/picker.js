@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import config from 'ember-get-config';
+import { assign } from '@ember/polyfills';
 
 const {
   Component,
@@ -27,7 +28,7 @@ export default Component.extend({
       'time': {}
     };
     const appOptions = config['ember-cli-pickadate'];
-    return Object.assign(defaults, appOptions);
+    return assign(defaults, appOptions);
   },
 
   toggleInputDisabled: function() {
